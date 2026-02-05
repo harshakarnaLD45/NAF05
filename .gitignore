@@ -1,0 +1,18 @@
+.vercel
+node_modules/
+dist/
+build/
+.env
+.env.local
+.env.production
+.env.development
+
+.eslintcache
+.DS_Store
+.vscode/
+.idea/
+
+*.log
+
+# Optional
+.cache/
