@@ -21,7 +21,7 @@ import MembersNafinfo from "./MembershipInfo";
 
 function Membership() {
     const { t, i18n } = useTranslation();
-    const [step, setStep] = useState(3); // 1 = email, 2 = mpin, 3 = signup
+    const [step, setStep] = useState(1); // 1 = email, 2 = mpin, 3 = signup
     const [email, setEmail] = useState("");
     const [mpin, setMpin] = useState("");
     const [firstName, setFirstName] = useState("");
