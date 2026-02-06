@@ -13,7 +13,7 @@ import { BackButton, Email } from "../../Components/CustomIcons";
 import AnimateButton from "../../Components/CommonComponents/AnimateButton"
 import CustomTextField from "../MachinesPage/MantaincePage/CustomTextField";
 import { IconButton, InputAdornment } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { Visibility, VisibilityOff, CheckCircle } from "@mui/icons-material";
 import { useTranslation, Trans } from "react-i18next";
 import './Membership.css';
 //import Image1 from '../../assets/NAF_lobby.webp';
@@ -52,6 +52,7 @@ function Membership() {
     const [emailVerified, setEmailVerified] = useState(false);
     const [isVerifyingCode, setIsVerifyingCode] = useState(false);
     const [verifyButtonClicked, setVerifyButtonClicked] = useState(false);
+    const [verificationCodeStatus, setVerificationCodeStatus] = useState("");
 
     const [loading, setLoading] = useState(false);
     const { lang } = useParams();
@@ -170,15 +171,18 @@ function Membership() {
 
             if (response.status === 200 && response.data.message === "Email verified successfully") {
                 setEmailVerified(true);
+                setVerificationCodeStatus("verified");
                 console.log("ghoihhhhh");
 
                 setStep(3); // move to email verification step
                 setSnackbar({ open: true, message: t("memebersSignup.msg_verification_code_verified"), severity: "success" });
             } else {
+                setVerificationCodeStatus("error");
                 setSnackbar({ open: true, message: t("membership.msg_error_verifying_code"), severity: "error" });
             }
 
         } catch (error) {
+            setVerificationCodeStatus("error");
             setSnackbar({ open: true, message: t("membership.msg_error_verifying_code"), severity: "error" });
             console.error(error);
         } finally {
@@ -423,10 +427,12 @@ function Membership() {
             setStep(1);
             setEmailVerified(false);
             setVerifyButtonClicked(false);  // Reset verify button state
+            setVerificationCodeStatus("");  // Reset verification status
         }
         else if (step === 3) {
             setEmailVerified(false);
             setVerificationCode("");
+            setVerificationCodeStatus("");  // Reset verification status
             setStep(22);
         }
         else if (step === 4) {
@@ -516,7 +522,7 @@ function Membership() {
                             display: "flex",
                             flexDirection: "column",
                             alignItems: "center",
-                            
+
                         }}>
                         {/* Step 1: Email */}
                         {step === 1 && (
@@ -670,7 +676,7 @@ function Membership() {
 
                         {/* Step 2: Email Verification */}
                         {step === 22 && !emailVerified && (
-                            <Box sx={{ width: "100%", maxWidth: 600 }}>
+                            <Box sx={{ width: "100%", maxWidth: 550 }}>
 
                                 <Typography sx={{ mb: 6, color: '#FCFCFC', textAlign: 'center' }} className="bodyRegularText3">
                                     {t("membership.label_enter_details")}
@@ -701,7 +707,7 @@ function Membership() {
                                                 </InputAdornment>
                                             ) : null
                                         } />
-                                    {verifyButtonClicked && (
+                                    {/* {verifyButtonClicked && (
                                         <Box sx={{  display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
                                             <Typography 
                                                 onClick={handleSendVerificationCode} 
@@ -710,26 +716,37 @@ function Membership() {
                                                 {t("memebersSignup.btn_resend")}
                                             </Typography>
                                         </Box>
-                                    )}
+                                    )} */}
                                 </Box>
 
-                                {/* Show verification code only after clicking Verify for new email */}
-                                {/*<Typography sx={{ mb: 1, color: '#FCFCFC' }}>
-                                    {t("membership.label_enter_verification_code")}
-                                </Typography> */}
+                              
 
                                 <CustomTextField
                                     label={t("membership.field_verification_code")}
                                     type="text"
                                     value={verificationCode}
-                                    onChange={(e) => setVerificationCode(e.target.value.replace(/\D/g, ""))}
+                                    onChange={(e) => {
+                                        setVerificationCode(e.target.value.replace(/\D/g, ""));
+                                        setVerificationCodeStatus("");  // Reset status when user types
+                                    }}
                                     inputProps={{ maxLength: 6 }}
                                     required
                                 />
+                                {/* { verificationCodeStatus === 'verified' && (
+                                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 1 }}>
+                                        <CheckCircle sx={{ color: "#21CD83", fontSize: 20 }} />
+                                        <Typography className="bodyRegularText4" sx={{ color: "#21CD83" }}>
+                                            {t("membership.msg_verification_successful")}
+                                        </Typography>
+                                    </Box>
+                                )} */}
 
-                                <Box sx={{ mt: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                    <Typography sx={{ color: "#fcfcfc", textAlign: "center", mb: 2 }} className="bodyRegularText4">
+                                <Box sx={{ my: 4, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                                    <Typography sx={{ color: "#fcfcfc", textAlign: "center", mb: 0.5 }} className="bodyRegularText4">
                                         {t("membership.msg_spam_folder")}
+                                    </Typography>
+                                    <Typography sx={{ color: "#fcfcfc", textAlign: "center", mb: 2 }} className="bodyRegularText4">
+                                        {t("memebersSignup.btn_resend1")}  <span onClick={handleSendVerificationCode} style={{ color: "#fcfcfc", cursor: "pointer", textDecoration: 'underline' }}>{t("memebersSignup.btn_resend")}</span>
                                     </Typography>
                                 </Box>
 
@@ -943,7 +960,7 @@ function Membership() {
                                         }
                                         sx={{
                                             alignItems: "flex-start",
-                                            mt: 2,ml:"-4px"
+                                            mt: 2, ml: "-4px"
                                         }}
                                     />
                                 </Box>

@@ -931,6 +931,7 @@
     "msg_mpin_update_failed": "Failed to update MPIN",
     "msg_account_deleted_success": "Your account has been successfully deleted.",
     "msg_account_delete_failed": "Error deleting the account. Please try again.",
+    "btn_resend1": " Still didn’t get it? ",
     "btn_resend": "Resend",
     "btn_send_otp": "Send Code",
     "btn_sending_otp": "Sending...",

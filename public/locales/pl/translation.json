@@ -871,6 +871,7 @@
     "PostalZipCode": "Kod pocztowy*",
     "General": "Ogólne",
     "SelectGender": "Wybierz płeć*",
+  "btn_resend1": "Nadal nie otrzymałeś?",
     "Membershipstartdate": "Data rozpoczęcia członkostwa*",
     "TopupAmount": "Kwota doładowania",
     "privacypolicy": "Rozumiem, że NAF  będzie bezpiecznie przechowywać moje dane zgodnie z ich polityką prywatności",
