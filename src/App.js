@@ -58,9 +58,9 @@ const AutomatsPage = React.lazy(() => import('./Pages/MachinesPage/AutomatsPage'
 const PrivacyPolicyPage = React.lazy(() => import('./Pages/PrivacyPolicy/privacypolicy'));
 const ImprintsPage = React.lazy(() => import('./Pages/PrivacyPolicy/imprints'));
 const TermsOfUsePage = React.lazy(() => import('./Pages/PrivacyPolicy/terms&policy'));
-const Membership = React.lazy(() => import('./Pages/Membership/MembershipPage'));
-const Dashboard = React.lazy(() => import('./Pages/Membership/DashboardPage'));
-const PaymentPage = React.lazy(() => import('./Pages/Membership/PaymentPage'));
+const Membership = React.lazy(() => import('./Pages/Membership/Membership.js'));
+const Dashboard = React.lazy(() => import('./Pages/Membership/Dashboard.js'));
+const PaymentPage = React.lazy(() => import('./Pages/Membership/PaymentPage.js'));
 
 
 const preloadHeavyPages = () => {

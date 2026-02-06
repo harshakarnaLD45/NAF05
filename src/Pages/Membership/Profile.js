@@ -24,8 +24,8 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 import DeleteConfirmationPopup from "./DeleteConfirmationPopup";
 import { useParams } from "react-router-dom";
-import { AccordionIcon } from "../../Componenets/CustomIcons";
-import countryCallingCodes from "../../Componenets/full_country_calling_codes.json";
+import { AccordionIcon } from "../../Components/CustomIcons";
+import countryCallingCodes from "../../Components/full_country_calling_codes.json";
 import { Autocomplete } from "@mui/material";
 
 
@@ -70,15 +70,14 @@ const Profile = ({ data = {}, onUpdate }) => {
 
         // Process data and normalize country field
         // Always reset sensitive/temporary fields to empty strings
-        let processedData = { 
-            ...data, 
-            mpin: "", 
+        let processedData = {
+            ...data,
+            mpin: "",
             confirmMpin: "",
             newEmail: "",
             verificationCode: ""
         };
 
-        // Normalize country field to always be a string
         let countryValue = "";
         if (data.country && typeof data.country === 'object' && data.country.name) {
             countryValue = data.country.name;
@@ -207,7 +206,7 @@ const Profile = ({ data = {}, onUpdate }) => {
 
             setEmailChangeSuccess(true);
             setEmailChangeStep('idle');
-            
+
             // Collapse the email change accordion
             setEmailAccordionExpanded(false);
 
@@ -301,29 +300,64 @@ const Profile = ({ data = {}, onUpdate }) => {
     };
 
     const handleUpdateMpin = async () => {
-        // Frontend validation
-        if (mpinData.currentMpin.length !== 6) {
+        // MPIN validation regex - exactly 6 digits
+        const mpinRegex = /^\d{6}$/;
+
+        //1) Check current MPIN is entered
+        if (!mpinData.currentMpin || mpinData.currentMpin.trim() === '') {
             setSnackbar({
                 open: true,
-                message: t("membership.msg_confirm_mpin_six_digits"),
+                message: t("membership.msg_enter_current_mpin"),
                 severity: "error",
             });
             return;
         }
 
-        if (mpinData.newMpin.length !== 6) {
+        // Validate current MPIN is exactly 6 digits and numeric
+        if (!mpinRegex.test(mpinData.currentMpin)) {
             setSnackbar({
                 open: true,
-                message: t("membership.msg_confirm_mpin_six_digits"),
+                message: t("membership.verify_mpin"),
                 severity: "error",
             });
             return;
         }
 
+        // Check new MPIN is entered
+        if (!mpinData.newMpin || mpinData.newMpin.trim() === '') {
+            setSnackbar({
+                open: true,
+                message: t("membership.msg_enter_new_mpin"),
+                severity: "error",
+            });
+            return;
+        }
+
+        // Check confirm MPIN is entered
+        if (!mpinData.confirmMpin || mpinData.confirmMpin.trim() === '') {
+            setSnackbar({
+                open: true,
+                message: t("membership.msg_enter_confirm_mpin"),
+                severity: "error",
+            });
+            return;
+        }
+
+        // Check new MPIN and confirm MPIN match
         if (mpinData.newMpin !== mpinData.confirmMpin) {
             setSnackbar({
                 open: true,
-                message: t("membership.msg_mpin_confirmation_match"),
+                message: t("memebersSignup.msg_mpin_confirmation_match"),
+                severity: "error",
+            });
+            return;
+        }
+
+        // Validate both new MPIN and confirm MPIN are exactly 6 digits and contain only numeric characters
+        if (!mpinRegex.test(mpinData.newMpin) || !mpinRegex.test(mpinData.confirmMpin)) {
+            setSnackbar({
+                open: true,
+                message: t("membership.msg_new_mpin_6_digits"),
                 severity: "error",
             });
             return;
@@ -342,7 +376,7 @@ const Profile = ({ data = {}, onUpdate }) => {
 
             setSnackbar({
                 open: true,
-                message: t("membership.msg_mpin_updated_success"),
+                message: t("memebersSignup.msg_mpin_updated_success"),
                 severity: "success",
             });
 
@@ -372,7 +406,7 @@ const Profile = ({ data = {}, onUpdate }) => {
         if (!formData.newEmail || !isValidEmail(formData.newEmail)) {
             setSnackbar({
                 open: true,
-                message: t("membership.msg_enter_valid_email"),
+                message: t("validation.invalidNewEmail"),
                 severity: "error",
             });
             return;
@@ -411,7 +445,7 @@ const Profile = ({ data = {}, onUpdate }) => {
 
             setSnackbar({
                 open: true,
-                message: t("membership.msg_account_deleted_success"),
+                message: t("memebersSignup.msg_account_deleted_success"),
                 severity: "success",
             });
 
@@ -419,10 +453,10 @@ const Profile = ({ data = {}, onUpdate }) => {
             window.location.href = `/${lang}/membership`; // redirect to membership page
         } catch (error) {
             console.error("Fehler beim Löschen des Kontos:", error);
-            setErrorMessage("Error deleting the account. Please try again.");
+            setErrorMessage(t("memebersSignup.msg_account_delete_failed"));
             setSnackbar({
                 open: true,
-                message: t("membership.msg_account_delete_failed"),
+                message: t("memebersSignup.msg_account_delete_failed"),
                 severity: "error",
             });
         } finally {
@@ -529,10 +563,10 @@ const Profile = ({ data = {}, onUpdate }) => {
                     expandIcon={<AccordionIcon sx={{ color: "#fff" }} />}
                     sx={{
                         display: "flex",
-                        justifyContent: "space-between",  
+                        justifyContent: "space-between",
                         alignItems: "center",
                         "& .MuiAccordionSummary-content": {
-                            margin: 0, 
+                            margin: 0,
                         },
                     }}
                 >
@@ -540,7 +574,7 @@ const Profile = ({ data = {}, onUpdate }) => {
                 </AccordionSummary>
 
                 <AccordionDetails  >
-                    <Grid container spacing={3}>
+                    <Grid container spacing={1}>
 
                         {/* First Name */}
                         <Grid item xs={12} md={4} sx={{ mb: 2 }}>
@@ -588,7 +622,7 @@ const Profile = ({ data = {}, onUpdate }) => {
 
 
                     {/* Address section */}
-                    <Grid container spacing={3} sx={{ mt: 8, mb: 2 }}>
+                    <Grid container spacing={ 1  } sx={{ mt: { xs:4 ,sm:4,md:6,lg :8}, mb: 2 }}>
                         {/* Address Line 1 */}
                         <Grid item xs={12} md={4} sx={{ mb: 2 }}>
                             <label className="bodyRegularText4">{t("membership.field_street")}</label>
@@ -703,12 +737,13 @@ const Profile = ({ data = {}, onUpdate }) => {
                                     </MenuItem>
                                     {countryCallingCodes.map((option) => (
                                         <MenuItem key={option.name} value={option.name}>
-                                            {option.name} 
+                                            {option.name}
                                         </MenuItem>
                                     ))}
                                 </Select>
                             </FormControl>
                         </Grid>
+
                         {/* Zip/Postal */}
                         <Grid item xs={12} md={4} sx={{ mb: 2 }}>
                             <label className="bodyRegularText4">{t("membership.field_zip_postal")}</label>

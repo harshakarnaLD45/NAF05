@@ -1,15 +1,18 @@
 {
   "AnimateBtn": {
-    "request": "ANFRAGE",
-    "quote": "EIN ANGEBOT",
-    "view": "ANSEHEN",
-    "learn": "LERNEN",
-    "Download": "LADEN",
-    "now": "jetzt",
-    "more": "MEHR",
-    "raise": "ERSTELLEN",
-    "arequest": "eine Anfrage"
-  },
+  "request": "ANFRAGE",
+  "quote": "ANGEBOT",
+  "view": "ANSEHEN",
+  "learn": "ERFAHREN",
+  "Download": "LADEN",
+  "now": "jetzt",
+  "more": "MEHR",
+  "raise": "ERSTELLEN",
+  "arequest": "eine Anfrage",
+  "next": "Weiter",
+  "step": "SCHRITT"
+}
+,
   "Header": {
     "menu": "Menü",
     "menuHome": "Startseite",
@@ -841,7 +844,7 @@
     "title_signup": "Registrieren",
     "MembershipTitle": "Exklusive Vorteile mit unserer Mitgliedskarte freischalten",
     "MembershipSubTitle": "Holen Sie sich Ihre NAF-Mitgliedskarte und erleben Sie ein neues Maß an Komfort und Ersparnissen an unseren Automaten.",
-    "Benefits": "Vorteile",
+    "Benefits": "Vorteile","btn_resend": "Erneut senden",
     "FasterCheckout": "Schnellere Bezahlung",
     "EasyPurchaseTracking": "Einfache Kaufverfolgung",
     "ExclusiveDiscounts": "Exklusive Rabatte",

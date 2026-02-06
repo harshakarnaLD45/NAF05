@@ -1,15 +1,18 @@
 {
  "AnimateBtn": {
-    "request": "SOLICITAR",
-  "quote": "UN PRESUPUESTO",
+  "request": "SOLICITAR",
+  "quote": "COTIZAR",
   "view": "VER",
   "learn": "APRENDER",
   "Download": "DESCARGAR",
   "now": "ahora",
   "more": "MÁS",
   "raise": "CREAR",
-  "arequest": "una solicitud"
-  },
+  "arequest": "una solicitud",
+  "next": "Siguiente",
+  "step": "PASO"
+}
+,
   "Header": {
     "menuHome": "Inicio",
     "menuAutomats": "Autómatas",
@@ -857,6 +860,7 @@
     "Choosetype": "Elija tipo*",
     "Contact": "Contacto",
     "FirstName": "Nombre*",
+    "btn_resend": "Reenviar",
     "LastName": "Apellido*",
     "E-mail": "Correo electrónico*",
     "Telephone number": "Número de teléfono*",

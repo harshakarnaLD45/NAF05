@@ -383,130 +383,61 @@ const FactoryPage = () => {
             {t('factories.suitableSubtitle')}
           </Typography>
         </Box>
-        < Swiper
-          modules={[FreeMode, Mousewheel]}
-          spaceBetween={16}
-          slidesPerView={'auto'}
-          freeMode={true}
-          mousewheel={false}
-          grabCursor={true}
-        >
-          {machines.map((machine, index) => (
-            <SwiperSlide key={index} style={{ width: 'auto' }}>
-              <Box
-                className="machine-card"
-                sx={{
-                  position: 'relative',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  borderRadius: '12px',
-                  background: '#262626',
-                  p: { xs: 1, sm: 2, md: 4 },
-                  cursor: 'grab',
-                  // overflow: 'hidden',
-                }}
-              >
-                <Box sx={{
-                  height: { xs: 320, sm: 400, md: 500, xl: 650 },
-                }}>
-
-
-                  {/* Machine image */}
-                  <Box sx={{ position: 'relative', height: '90%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    {machine.name === t('machines.FriesMachine') ? (
-                      /* Coming Soon display for Fries Machine */
-                      <Box
-                        sx={{
-                          width: '100%',
-                          minWidth: '450px',
-                          height: '100%',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          backgroundColor: '#262626',
-                          borderRadius: '8px',
-                          '@media (max-width: 1490px)': {
-                            minWidth: '350px',
-
-                          },
-                          '@media (max-width: 1090px)': {
-                            minWidth: '300px',
-
-                          },
-                          '@media (max-width: 550px)': {
-                            minWidth: '250px',
-
-                          },
-                        }}
-                      >
+         <Swiper modules={[FreeMode, Mousewheel]} spaceBetween={16} slidesPerView={'auto'} freeMode={true} grabCursor={true}>
+                    {machines.map((machine, index) => (
+                      <SwiperSlide key={index} style={{ width: 'auto' }}>
                         <Box
-                          className='bodyMediumText2'
+                          className="machine-card"
                           sx={{
-                            color: '#7FEE64',
-                            fontSize: { xs: '16px', sm: '18px', md: '20px' },
-                            fontWeight: 'bold',
-                            textAlign: 'center',
+                            position: 'relative',
+                            
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            borderRadius: '12px',
+                            background: '#262626',
+                            p: { xs: 1, sm: 2, md: 4 },
+                            cursor: 'grab',
                           }}
                         >
-                          {t('Home.comingSoon')}
+                          <Box sx={{ height: { xs: 320, sm: 400, md: 500, xl: 650 } }}>
+                            <Box
+                              component="img"
+                              src={machine.img}
+                              alt={machine.alt}
+                              sx={{
+                                width: { xs: 200, sm: 250, md: 300, xl: 400 },
+                                height: '100%',
+                                p: { xs: 3, sm: 4, md: 5 },
+                                transition: 'transform 0.3s ease',
+                                cursor: 'grab',
+                                zIndex: 2,
+                                '&:hover': { transform: 'scale(1.05)' },
+                              }}
+                            />
+                          </Box>
+                          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', mt: 2, px: 1, gap: 2, zIndex: 2 }}>
+                            <Box>
+                              <h2 className="bodyMediumText2" style={{ color: '#fff' }}>
+                                {machine.name}
+                              </h2>
+                            </Box>
+                            <ArrowButton onClick={() => handleMachineNavigate(machine.route)} />
+                          </Box>
                         </Box>
-                      </Box>
-                    ) : (
-                      /* Normal machine image for other machines */
-                      <Box
-                        component="img"
-                        src={machine.img}
-                        alt={machine.name}
-                        sx={{
-                          width: { xs: 200, sm: 250, md: 300, xl: 400 },
-                          height: '100%',
-                          p: { xs: 3, sm: 4, md: 5 },
-                          transition: 'transform 0.3s ease',
-                          cursor: 'grab',
-                          zIndex: 2,
-                          '&:hover': {
-                            transform: 'scale(1.05)',
-                          },
-                        }}
-                      />
-                    )}
-                  </Box>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
                 </Box>
-                {/* Name and button */}
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    width: '100%',
-                    mt: 2,
-                    px: 1,
-                    gap: 2,
-                    zIndex: 2,
-                  }}
-                >
-                  <Box>
-                    <h2 className='bodyMediumText2' style={{ color: '#fff' }}>
-                      {machine.name}
-                    </h2>
-                  </Box>
-                  <ArrowButton onClick={() => handleMachineNavigate(machine.route)} />
-                </Box>
-              </Box>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </Box>
-
+        
       {/*ProductEnquiryPage*/}
       <Box className="section-container" id="contact" >
         <ProductEnquiryForm />
       </Box>
 
       {/* FAQ Section */}
-      <Box className="section-container" sx={{  width: '100%' }}>
-        <Box sx={{ mb: { xs: 5, md: 7 }, textAlign: 'center' }}>
+          <Box  className="section-container" sx={{  width: '100%',boxSizing:'border-box', overflow:'hidden'  }}>
+            <Box sx={{ mb: { xs: 5, md: 7 }, textAlign: 'center' }}>
           <Typography className="headings-h2" sx={{ color: '#fcfcfc' }}>
             {t('factories.faq.title')}
           </Typography>

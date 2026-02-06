@@ -92,9 +92,9 @@ const NafApp = () => {
               position: 'relative',
               mt: 6,
               maxWidth: '800px',
-              width: { xs: '200px', sm: '400px', md: '900px' },
+              width: { xs: '250px', sm: '400px', md: '900px' },
 
-              height: { xs: '150px', sm: '300px', md: '600px' },
+              height: { xs: '200px', sm: '300px', md: '600px' },
               overflow: 'hidden',
             }}
             >

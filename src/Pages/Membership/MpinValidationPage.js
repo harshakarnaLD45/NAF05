@@ -27,7 +27,7 @@ const MpinValidationPage = ({ onSuccess }) => {
 
         try {
             const response = await axios.post(
-                "https://api.naf-cloudsystem.de/api/membership/authenticate",
+                "https://staging-api.naf-cloudsystem.de/api/membership/authenticate",
                 null,
                 { params: { email, mpin } }
             );

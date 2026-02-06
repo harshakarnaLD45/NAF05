@@ -15,7 +15,7 @@ import DownloadIcon from '@mui/icons-material/FileDownload';
 import axios from "axios";
 import * as XLSX from "xlsx";
 import { useTranslation } from "react-i18next";
-import './MembershipPage.css';
+import './Membership.css';
 
 function TransactionHistory({ memberId, cardId }) {
     const { t, i18n } = useTranslation();

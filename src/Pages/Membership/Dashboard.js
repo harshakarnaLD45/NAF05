@@ -47,16 +47,17 @@ const Dashboard = () => {
         fetchMemberDetails();
     }, []);
 
-    // Force re-render when language changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
     useEffect(() => {
-        // This will cause a re-render when language changes
-        // which will update all translated text including status messages
     }, [i18n.language]);
 
     const handleLogout = () => {
         localStorage.removeItem("authToken");
         localStorage.removeItem("authEmail");
-        window.location.href = `/${lang}/membership`; // redirect
+        window.location.href = `/${lang}/membership`; 
     };
 
     return (

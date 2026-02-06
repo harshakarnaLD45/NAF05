@@ -3,7 +3,7 @@ import { Box, Typography, Button, Dialog, DialogTitle, DialogContent, DialogActi
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import './MembershipPage.css';
+import './Membership.css';
 import CloseIcon from '@mui/icons-material/Close';
 
 const Balance = ({ balance = 0, token, onBalanceUpdate, cardNumber }) => {

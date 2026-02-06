@@ -1,15 +1,18 @@
 {
   "AnimateBtn": {
-    "request": "DEMANDE",
-    "quote": "UN DEVIS",
-    "view": "VOIR",
-    "learn": "DÉCOUVRIR",
-    "Download": "TÉLÉCHARGER",
-    "now": "maintenant",
-    "more": "PLUS",
-    "raise": "CRÉER",
-    "arequest": "une demande"
-  },
+  "request": "DEMANDE",
+  "quote": "DEVIS",
+  "view": "VOIR",
+  "learn": "DÉCOUVRIR",
+  "Download": "TÉLÉCHARGER",
+  "now": "maintenant",
+  "more": "PLUS",
+  "raise": "CRÉER",
+  "arequest": "une demande",
+  "next": "Suivant",
+  "step": "ÉTAPE"
+}
+,
   "Header": {
     "menu": "Menu",
     "menuHome": "Accueil",
@@ -836,6 +839,7 @@
     "MembershipTitle": "Débloquez des avantages exclusifs avec notre carte de membre",
     "MembershipSubTitle": "Obtenez votre carte de membre NAF et découvrez un nouveau niveau de commodité et d'économies sur nos distributeurs automatiques.",
     "Benefits": "Avantages",
+    "btn_resend": "Renvoyer",
     "FasterCheckout": "Paiement plus rapide",
     "EasyPurchaseTracking": "Suivi facile des achats",
     "ExclusiveDiscounts": "Réductions exclusives",

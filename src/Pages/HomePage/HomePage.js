@@ -29,10 +29,10 @@ const HomePage = () => {
   const { lang } = useParams();
 
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    //  document.title = `NAF Vending -${t('titles.Home')}`; // Set tab title
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  //   //  document.title = `NAF Vending -${t('titles.Home')}`; // Set tab title
+  // }, []);
 
   return (
     <Box>
@@ -130,7 +130,7 @@ const HomePage = () => {
         }}>
           <Box sx={{ position: 'absolute', width: '50%', height: '50%', background: 'linear-gradient(155deg, rgba(127, 238, 100, 0.60) 8.85%, rgba(250, 120, 84, 0.60) 52.81%)', filter: 'blur(125px)', borderRadius: '50%', }} />
           <Box sx={{ width: '100%', position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-            <Typography sx={{ color: '#fcfcfc', textAlign: 'center', maxWidth: { xs: '100%', sm: '45%', md: '45%' }, mb: 4, letterSpacing: 4 }} className="headings-h1">
+            <Typography sx={{ color: '#fcfcfc', textAlign: 'center', maxWidth: { xs: '100%', sm: '45%', md: '45%' }, mb: { xs: 0.5, sm: 3, md: 4 }, letterSpacing: 4 }} className="headings-h1">
               {t("Home.mainHeading")}
             </Typography>
             <Typography sx={{ color: '#c2c2c4', textAlign: 'center', maxWidth: '45%' }} className="bodyRegularText4">

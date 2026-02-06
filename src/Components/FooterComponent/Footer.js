@@ -163,63 +163,64 @@ const Footer = () => {
               paddingTop: '0px',
             }}
           >
-            <Stack className="webite-contact" spacing={{ xs: 2, md: 2 }} alignItems={{ md: "flex-start" }} >
+            <Stack className="webite-contact" spacing={{ xs: 2, md: 2 }} alignItems={{ xs:'center',sm:'flex-start',md: "flex-start" }} >
               <Box sx={{
                 color: "#FCFCFC",
                 display: "flex",
                 flexDirection: "column",
                 gap: { xs: "12px", md: "20px" },
-              }}
-              >
-                {/* Line 1 */}
-                <Typography variant="h2" className="headings-h2 xl-heading-text">
-                  {t("footer.Gotaproject")}
-                </Typography>
+               }}
+             >
+             {/* Line 1 */}
+           <Typography variant="h2" className="headings-h2 xl-heading-text">
+            {t("footer.Gotaproject")}
+           </Typography>
 
-                {/* Line 2 (text + video) */}
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "16px",
-                    flexWrap: "nowrap",
-                  }}
-                >
-                  <Typography variant="h2" className="headings-h2 xl-heading-text">
-                    {t("footer.Gotaproject1")}
-                  </Typography>
+           {/* Line 2 (text + video) */}
+           <Box
+           sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: "16px",
+            mt:-1,
+            flexWrap: "nowrap",
+          }}
+         >
+         <Typography variant="h2" className="headings-h2 xl-heading-text">
+            {t("footer.Gotaproject1")}
+         </Typography>
+         
+          <Box
+          component="video"
+          src={FooterVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-label="NAF Founders"
+          sx={{
+           width: { xs: 80, sm: 100, md: 160 },
+           height: { xs: 44, sm: 56, md: 90 },
+           borderRadius: "999px",
+           objectFit: "cover",
+           flexShrink: 0,
+          }}
+         />
+         </Box>
 
-                  <Box
-                    component="video"
-                    src={FooterVideo}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    aria-label="NAF Founders"
-                    sx={{
-                      width: { xs: 80, sm: 100, md: 160 },
-                      height: { xs: 44, sm: 56, md: 90 },
-                      borderRadius: "999px",
-                      objectFit: "cover",
-                      flexShrink: 0,
-                    }}
-                  />
-                </Box>
+         {/* Line 3 */}
+         <Typography variant="h2" className="headings-h2 xl-heading-text" sx={{mt:-1}}>
+          {t("footer.Gotaproject2")}
+         </Typography>
+         </Box>
 
-                {/* Line 3 */}
-                <Typography variant="h2" className="headings-h2 xl-heading-text">
-                  {t("footer.Gotaproject2")}
-                </Typography>
-              </Box>
-
-
-              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: { sm: "center" }, pt: { xs: 6, md: 6, lg: 6 }, }}>
+              
+              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: { sm: "center" } , pt: { xs: 6, md: 6,lg:6 },}}>
                 <AnimateButton text1={t('footer.footergetIn')} text2={t('footer.footertouch')} route={`/${lang}/contact`} />
               </Box>
 
               <Box className="social-icon-sec" sx={{
-                position: 'relative', pt: 5, pb: { xs: 2, sx: 0 },
+                position: 'relative', pt: 5, pb: {xs:2 ,sx:0 },
                 display: 'flex', flexDirection: 'row', gap: 5, justifyContent: 'center', alignItems: 'center'
               }}>
                 {socialIcons.map((social, index) => (
@@ -262,10 +263,10 @@ const Footer = () => {
                     sx={{
                       color: "#FCFCFC",
                       fontSize: { xs: "18px", md: "22px" },
-                      textAlign: { xs: "center", md: "left" },
+                      textAlign: { xs: "center", md: "left" }
                     }}
                   >
-                    <a href="mailto:info@naf-halsbach.de" style={{ cursor: "pointer" }}>info@naf-halsbach.de</a>
+                   <a href="mailto:info@naf-halsbach.de">info@naf-halsbach.de</a>
                   </Typography>
                   <Typography
                     className="footercontactdown footerpadding bodyRegularText4"
@@ -325,25 +326,25 @@ const Footer = () => {
                 </Typography>
                 <Stack spacing={1} alignItems={{ xs: "center", md: "flex-start" }}>
                   <Typography
-                    className="footercontactdown footerpadding bodyRegularText4"
-                    sx={{
-                      color: "#FCFCFC",
-                      fontSize: { xs: "18px", md: "22px" },
-                      textAlign: { xs: "center", md: "left" },
-                      "& a": {
-                        color: "#FCFCFC !important",
-                        textDecoration: "none !important",
-                      },
-                      "& a:visited": {
-                        color: "#FCFCFC !important",
-                      },
-                      "& a:hover": {
-                        color: "#FCFCFC !important",
-                      },
-                    }}
-                  >
-                    <a href="mailto:info@naf-halsbach.de">info@naf-halsbach.de</a>
-                  </Typography>
+                  className="footercontactdown footerpadding bodyRegularText4"
+                  sx={{
+    color: "#FCFCFC",
+    fontSize: { xs: "18px", md: "22px" },
+    textAlign: { xs: "center", md: "left" },
+    "& a": {
+      color: "#FCFCFC !important",
+      textDecoration: "none !important",
+    },
+    "& a:visited": {
+      color: "#FCFCFC !important",
+    },
+    "& a:hover": {
+      color: "#FCFCFC !important",
+    },
+  }}
+>
+  <a href="mailto:info@naf-halsbach.de">info@naf-halsbach.de</a>
+</Typography>
                   <Typography
                     className="footercontactdown footerpadding bodyRegularText4"
                     sx={{
@@ -421,18 +422,18 @@ const Footer = () => {
                 fontSize: { xs: "14px", md: "17px" },
                 textAlign: { xs: "center", md: "right" }
               }}
-            >  <Link to={`/${lang}/privacy-policy`} style={{   textDecoration: 'underline',  color: "#FCFCFC", cursor: "pointer" }}>
+            >  <Link to={`/${lang}/privacy-policy`} style={{ color: "#FCFCFC", cursor: "pointer" }}>
                 {t('Header.privacyPolicy')}
               </Link>
               {" | "}
-              <Link to={`/${lang}/terms-of-use`} style={{  textDecoration: 'underline', color: "#FCFCFC", cursor: "pointer" }}>
+              <Link to={`/${lang}/terms-of-use`} style={{ color: "#FCFCFC", cursor: "pointer" }}>
                 {t('Header.termsofuse')}
               </Link>
               {" | "}
-              <Link to={`/${lang}/imprint`} style={{  textDecoration: 'underline', color: "#FCFCFC", cursor: "pointer" }}>
+              <Link to={`/${lang}/imprint`} style={{ color: "#FCFCFC", cursor: "pointer" }}>
                 {t('imprints.imprintTitle')}
               </Link>
-
+              
             </Typography>
           </Box>
 

@@ -1,15 +1,18 @@
 {
   "AnimateBtn": {
-    "request": "ZAPYTANIE",
-    "quote": "OFERTĘ",
-    "view": "ZOBACZ",
-    "learn": "POZNAJ",
-    "Download": "POBIERZ",
-    "now": "teraz",
-    "more": "WIĘCEJ",
-    "raise": "UTWÓRZ",
-    "arequest": "zapytanie"
-  },
+  "request": "ZAPYTANIE",
+  "quote": "WYCENA",
+  "view": "PODGLĄD",
+  "learn": "POZNAJ",
+  "Download": "POBIERZ",
+  "now": "teraz",
+  "more": "WIĘCEJ",
+  "raise": "UTWÓRZ",
+  "arequest": "zapytanie",
+  "next": "Dalej",
+  "step": "KROK"
+}
+,
   "Header": {
     "menu": "Menu",
     "menuHome": "Inicio",
@@ -860,6 +863,7 @@
     "FirstName": "Imię*",
     "LastName": "Nazwisko*",
     "E-mail": "E-mail*",
+    "btn_resend": "Wyślij ponownie",
     "Telephone number": "Numer telefonu*",
     "Address": "Adres",
     "StreetAddress": "Adres ulicy*",

@@ -87,7 +87,7 @@ const handleLearnMore = () => {
 
          
 
-          <Box className="tradefair-popup-button-container">
+          {/* <Box className="tradefair-popup-button-container">
             <button
               className="tradefair-popup-button bodyMediumText4"
               data-cursor="hover"
@@ -108,7 +108,7 @@ const handleLearnMore = () => {
                 {t('tradefairPopup.learnMore', 'Learn More')}
               </a>
             </button>
-          </Box>
+          </Box> */}
         </Box>
       </Box>
     </Box>

@@ -13,7 +13,7 @@ import {
   Checkbox,
   FormControlLabel
 } from '@mui/material';
-import './MembershipPage.css';
+import './Membership.css';
 
 const PaymentPage = () => {
   const { t, i18n } = useTranslation();
@@ -125,7 +125,7 @@ const PaymentPage = () => {
       const token = localStorage.getItem("authToken");
 
       const response = await axios.post(
-        "https://api.naf-cloudsystem.de/api/membership-cards/deduct-balance",
+        "https://staging-api.naf-cloudsystem.de/api/membership-cards/deduct-balance",
         null,
         {
           headers: { Authorization: `Bearer ${token}` },
